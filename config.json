@@ -1,0 +1,53 @@
+{
+  "version": "5.4.296",
+  "buildDate": "2025-10-13T09:06:19.137Z",
+  "resources": [
+    {
+      "name": "cmaps",
+      "path": "cmaps",
+      "description": "字符映射文件，支持各种语言的PDF渲染"
+    },
+    {
+      "name": "standard_fonts",
+      "path": "standard_fonts",
+      "description": "标准字体文件，确保PDF文本正确显示"
+    },
+    {
+      "name": "iccs",
+      "path": "iccs",
+      "description": "ICC颜色配置文件，支持颜色管理"
+    },
+    {
+      "name": "images",
+      "path": "images",
+      "description": "UI图标和图片资源"
+    },
+    {
+      "name": "locale",
+      "path": "locale",
+      "description": "多语言本地化文件"
+    },
+    {
+      "name": "wasm",
+      "path": "wasm",
+      "description": "WebAssembly模块文件"
+    }
+  ],
+  "buildFiles": [
+    {
+      "name": "pdf.mjs",
+      "path": "pdf.mjs",
+      "description": "PDF.js主模块"
+    },
+    {
+      "name": "pdf.worker.mjs",
+      "path": "pdf.worker.mjs",
+      "description": "PDF.js Worker模块"
+    },
+    {
+      "name": "pdf.sandbox.mjs",
+      "path": "pdf.sandbox.mjs",
+      "description": "PDF.js沙箱模块"
+    }
+  ]
+}

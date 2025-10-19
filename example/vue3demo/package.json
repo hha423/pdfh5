@@ -8,16 +8,16 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^3.8.3",
-    "dommatrix": "^1.0.3",
     "pdfh5": "^2.0.2",
     "vue": "^3.2.13",
-    "vuetify": "^3.0.0",
-    "web-streams-polyfill": "^3.2.1"
+    "vuetify": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
+    "@babel/plugin-transform-class-properties": "^7.27.1",
+    "@babel/plugin-transform-class-static-block": "^7.28.3",
+    "@babel/plugin-transform-private-methods": "^7.27.1",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
@@ -27,20 +27,7 @@
   "peerDependencies": {
     "worker-loader": "^3.0.8"
   },
-  "peerDependenciesMeta": {
-    "worker-loader": {
-      "optional": true
-    }
-  },
-  "browser": {
-    "canvas": false,
-    "fs": false,
-    "http": false,
-    "https": false,
-    "url": false,
-    "zlib": false
-  },
-  "format": "amd",
+  "peerDependenciesMeta": {},
   "eslintConfig": {
     "root": true,
     "env": {
@@ -61,4 +48,5 @@
     "not dead",
     "not ie 11"
   ]
+ 
 }

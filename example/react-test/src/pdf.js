@@ -13,7 +13,13 @@ class Pdf extends Component {
 		//实例化
 		this.pdfh5 = new Pdfh5(document.querySelector("#demo"), {
 			pdfurl: this.props.src,
-			textLayer: true
+			textLayer: true,
+			workerSrc: "./pdf.worker.min.js",
+			cMapUrl: './cmaps/',
+			standardFontDataUrl: './standard_fonts/',
+			iccUrl: './iccs/',
+			wasmUrl: './wasm/'
+
 		});
 		//监听完成事件
 		this.pdfh5.on("complete", function (status, msg, time) {

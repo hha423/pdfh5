@@ -10,7 +10,7 @@
     <meta name="description" content="pdf.js移动端展示预览打开pdf-pdfh5.js" />
     <title>pdf.js移动端展示预览打开pdf-pdfh5.js</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link href="//www.gjtool.cn/download/pdfh5.png" type="image/x-icon" rel="shortcut icon" />
+    <link href="./pdfh5.png" type="image/x-icon" rel="shortcut icon" />
     <style>
         html,
         body {
@@ -151,7 +151,7 @@
 <body>
     <div style="max-width:1024px;margin:0 auto;">
         <div class="docs-header-content" style="transform:none;-webkit-transform:none;">
-            <p class="docs-subtitle">pdfh5.js - 移动端预览PDF插件，基于pdf.js</p>
+            <p class="docs-subtitle">pdfh5.js v3.0.0 - 移动端预览PDF插件，基于PDF.js 5.4.296</p>
             <a href="//github.com/gjTool/pdfh5"
                 style="display:block;margin-bottom:30px;">
                 <div id="code"></div>
@@ -166,14 +166,26 @@
             </iframe>
 
         </div>
-        <p style="text-align: left;margin-top: 20px;padding-left: 10px;">pdfh5支持在线预览，修改地址栏file=后的地址就行，如果不填写，就在实例化的时候传入pdf地址：</p>
+        <p style="text-align: left;margin-top: 20px;padding-left: 10px;">pdfh5.js v3.0.0 支持在线预览，基于PDF.js 5.4.296，具有以下特性：</p>
+        <ul style="text-align: left;margin-top: 20px;padding-left: 30px;">
+            <li>智能资源路径检测，支持CDN和本地资源</li>
+            <li>支持npm包安装，兼容Vue/React项目</li>
+            <li>支持懒加载模式，提升性能</li>
+            <li>支持文本层复制功能</li>
+            <li>支持PDF下载和打印功能</li>
+        </ul>
+        <p style="text-align: left;margin-top: 20px;padding-left: 10px;">
+            支持在线预览，修改地址栏file=后的地址即可，如果不填写，就在实例化的时候传入pdf地址：</p>
         <a target="_blank"
             href="//pdfh5.gjtool.cn/pdfh5/pdf.html?file=//pdfh5.gjtool.cn/pdfh5/test.pdf" style="padding-left: 10px;">http://pdfh5.gjtool.cn/pdfh5/pdf.html?file=//pdfh5.gjtool.cn/pdfh5/test.pdf</a>
         <p style="text-align: left;margin-top: 20px;padding-left: 10px;">
             默认优先获取浏览器地址栏？file=后面的地址，如果地址栏没有，再拿配置项的pdfurl或者data来渲染pdf。pdfh5实例初始化：</p>
 <pre style="text-align: left;margin-top: 20px;background: #111;color:aqua">
     var pdfh5 = new Pdfh5(document.querySelector("#app"), {
-        pdfurl: 'test.pdf'
+        pdfurl: 'test.pdf',
+        textLayer: true,    // 支持文本复制
+        lazyLoad: true,      // 懒加载模式
+        loadingBar: true     // 显示加载进度条
     });
 </pre>
         <div class="phone">

@@ -320,6 +320,9 @@ module.exports = function (webpackEnv) {
     },
     module: {
       strictExportPresence: true,
+      noParse: [
+        /node_modules\/pdfh5\/js\/.*\.min\.js$/
+      ],
       rules: [
         // Disable require.ensure as it's not a standard language feature.
         { parser: { requireEnsure: false } },
@@ -396,7 +399,13 @@ module.exports = function (webpackEnv) {
             // Unlike the application JS, we only compile the standard ES features.
             {
               test: /\.(js|mjs)$/,
-              exclude: /@babel(?:\/|\\{1,2})runtime/,
+              exclude: [
+                /@babel(?:\/|\\{1,2})runtime/,
+                /node_modules\/pdfh5\/js\/.*\.min\.js$/,
+                /node_modules\/pdfh5\/js\/pdf\.min\.js$/,
+                /node_modules\/pdfh5\/js\/pdf\.sandbox\.min\.js$/,
+                /node_modules\/pdfh5\/js\/pdf\.worker\.min\.js$/
+              ],
               loader: require.resolve('babel-loader'),
               options: {
                 babelrc: false,
@@ -485,6 +494,14 @@ module.exports = function (webpackEnv) {
                 'sass-loader'
               ),
             },
+            // Handle pdfh5 minified files with file-loader to avoid babel processing
+            {
+              test: /node_modules\/pdfh5\/js\/.*\.min\.js$/,
+              loader: require.resolve('file-loader'),
+              options: {
+                name: 'static/js/[name].[hash:8].[ext]',
+              },
+            },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
             // In production, they would get copied to the `build` folder.
@@ -555,6 +572,10 @@ module.exports = function (webpackEnv) {
       // during a production build.
       // Otherwise React will be compiled in the very slow development mode.
       new webpack.DefinePlugin(env.stringified),
+      // Provide process polyfill for browser environment
+      new webpack.ProvidePlugin({
+        process: 'process/browser',
+      }),
       // This is necessary to emit hot updates (currently CSS only):
       isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
       // Watcher doesn't work well if you mistype casing in a path so we use
@@ -666,6 +687,7 @@ module.exports = function (webpackEnv) {
       "https": 'empty',
       "url": false,
       "zlib": 'empty',
+      "process": true,
     },
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter

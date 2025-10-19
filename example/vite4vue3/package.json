@@ -5,16 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vue-tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview"
-  },   
+  },
   "dependencies": {
-    "dommatrix": "^1.0.3",
     "pdfh5": "^2.0.2",
-    "vue": "^3.3.4",
-    "web-streams-polyfill": "^3.2.1",
-    "canvas": "^2.11.2",
-    "path2d-polyfill": "^2.0.1"
+    "vue": "^3.3.4"
   },
   "peerDependencies": {
     "worker-loader": "^3.0.8"
@@ -24,23 +20,10 @@
       "optional": true
     }
   },
-  "optionalDependencies": {
-    "canvas": "^2.11.2",
-    "path2d-polyfill": "^2.0.1"
-  },
-  "browser": {
-    "canvas": false,
-    "fs": false,
-    "http": false,
-    "https": false,
-    "url": false,
-    "zlib": false
-  },
-  "format": "amd",
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.0",
-    "vue-tsc": "^1.8.3"
+    "vue-tsc": "^1.8.8"
   }
 }
